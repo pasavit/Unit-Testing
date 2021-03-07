@@ -21,5 +21,22 @@ namespace TestNinja.UnitTests
             Assert.IsTrue(result);
 
         }
+        [TestMethod]
+        // Method under test - Scenario testing - Behavior 
+        public void CanBeCancelledBy_ReservationMaker_ReturnsTrue()
+        {
+            // Arrange
+            var user = new User();
+            var reservation = new Reservation { MadeBy = user };
+
+            // Act
+            var result = reservation.CanBeCancelledBy(user);
+
+            // Assert
+            Assert.IsTrue(result);
+
+        }
+        
+
     }
 }
