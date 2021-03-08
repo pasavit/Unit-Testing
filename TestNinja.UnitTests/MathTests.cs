@@ -71,5 +71,15 @@ namespace TestNinja.UnitTests
 
             NUnit.Framework.Assert.That(result, Is.EqualTo(expectedResult));
         }
+        
+        [Test]
+        [NUnit.Framework.Ignore("Trial")]
+        [TestCase(2,1,2)]
+        public void Max_WhenCalled_TestIgnore(int a, int b, int expectedResult)
+        {
+            var result = _math.Max(a, b);
+
+            NUnit.Framework.Assert.That(result, Is.EqualTo(expectedResult));
+        }
     }
 }
