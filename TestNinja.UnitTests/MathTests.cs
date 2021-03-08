@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,48 +9,67 @@ using TestNinja.Fundamentals;
 
 namespace TestNinja.UnitTests
 {
-    [TestClass]
+    //[TestClass]
+    //public class MathTests
+    //{
+    //    [TestMethod]
+    //    public void Add_WhenCalled_ReturnTheSumOfArguments()
+    //    {
+    //        var math = new Fundamentals.Math();
+
+    //        var result = math.Add(1, 2);
+
+    //        Assert.AreEqual(3 , result);
+    //    }
+
+    //    [TestMethod]
+    //    public void Max_FirstArgumentIsGreater_ReturnFirstArgument()
+    //    {
+    //        var math = new Fundamentals.Math();
+
+    //        var result = math.Max(2, 1);
+
+    //        Assert.AreEqual(2, result);
+    //    }
+
+    //    [TestMethod]
+    //    public void Max_SecondArgumentIsGreater_ReturnSecondArgument()
+    //    {
+    //        var math = new Fundamentals.Math();
+
+    //        var result = math.Max(1, 2);
+
+    //        Assert.AreEqual(2, result);
+    //    }
+        
+    //    [TestMethod]
+    //    public void Max_ArgumentAreEqual_ReturnSameArgument()
+    //    {
+    //        var math = new Fundamentals.Math();
+
+    //        var result = math.Max(1, 1);
+
+    //        Assert.AreEqual(1, result);
+    //    }
+    [TestFixture]
     public class MathTests
     {
-        [TestMethod]
-        public void Add_WhenCalled_ReturnTheSumOfArguments()
+        private Fundamentals.Math _math;
+        [SetUp]
+        public void SetUp()
         {
-            var math = new Fundamentals.Math();
-
-            var result = math.Add(1, 2);
-
-            Assert.AreEqual(3 , result);
+            _math = new Fundamentals.Math();
         }
 
-        [TestMethod]
-        public void Max_FirstArgumentIsGreater_ReturnFirstArgument()
+        [Test]
+        [TestCase(2,1,2)]
+        [TestCase(1,2,2)]
+        [TestCase(2,2,2)]
+        public void Max_WhenCalled_ReturnGreaterArgument(int a, int b, int expectedResult)
         {
-            var math = new Fundamentals.Math();
+            var result = _math.Max(a, b);
 
-            var result = math.Max(2, 1);
-
-            Assert.AreEqual(2, result);
+            NUnit.Framework.Assert.That(result, Is.EqualTo(expectedResult));
         }
-
-        [TestMethod]
-        public void Max_SecondArgumentIsGreater_ReturnSecondArgument()
-        {
-            var math = new Fundamentals.Math();
-
-            var result = math.Max(1, 2);
-
-            Assert.AreEqual(2, result);
-        }
-        
-        [TestMethod]
-        public void Max_ArgumentAreEqual_ReturnSameArgument()
-        {
-            var math = new Fundamentals.Math();
-
-            var result = math.Max(1, 1);
-
-            Assert.AreEqual(1, result);
-        }
-
     }
 }
