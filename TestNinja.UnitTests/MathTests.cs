@@ -81,5 +81,18 @@ namespace TestNinja.UnitTests
 
             NUnit.Framework.Assert.That(result, Is.EqualTo(expectedResult));
         }
+
+        [Test]
+        public void GetOddNumbers_LimitIsGreaterThanZero_ReturnOddNumbersUpToLimit()
+        {
+            var result = _math.GetOddNumbers(5);
+
+            NUnit.Framework.Assert.That(result, Is.Not.Empty);
+            NUnit.Framework.Assert.That(result.Count(), Is.EqualTo(3));
+            NUnit.Framework.Assert.That(result, Does.Contain(1));
+            NUnit.Framework.Assert.That(result, Does.Contain(3));
+            NUnit.Framework.Assert.That(result, Does.Contain(5));
+
+        }
     }
 }
