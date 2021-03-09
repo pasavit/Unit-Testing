@@ -94,7 +94,8 @@ namespace TestNinja.UnitTests
             //NUnit.Framework.Assert.That(result, Does.Contain(5));
 
             NUnit.Framework.Assert.That(result, Is.EquivalentTo(new[] { 1, 3, 5 }));
-
+            //NUnit.Framework.Assert.That(result, Is.Ordered);
+            //NUnit.Framework.Assert.That(result, Is.Unique);
         }
     }
 }
