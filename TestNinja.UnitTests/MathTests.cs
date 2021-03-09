@@ -87,11 +87,13 @@ namespace TestNinja.UnitTests
         {
             var result = _math.GetOddNumbers(5);
 
-            NUnit.Framework.Assert.That(result, Is.Not.Empty);
-            NUnit.Framework.Assert.That(result.Count(), Is.EqualTo(3));
-            NUnit.Framework.Assert.That(result, Does.Contain(1));
-            NUnit.Framework.Assert.That(result, Does.Contain(3));
-            NUnit.Framework.Assert.That(result, Does.Contain(5));
+            //NUnit.Framework.Assert.That(result, Is.Not.Empty);
+            //NUnit.Framework.Assert.That(result.Count(), Is.EqualTo(3));
+            //NUnit.Framework.Assert.That(result, Does.Contain(1));
+            //NUnit.Framework.Assert.That(result, Does.Contain(3));
+            //NUnit.Framework.Assert.That(result, Does.Contain(5));
+
+            NUnit.Framework.Assert.That(result, Is.EquivalentTo(new[] { 1, 3, 5 }));
 
         }
     }
